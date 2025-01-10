@@ -14,7 +14,15 @@ def main():
         row = [item.text for item in tr.find_elements(By.XPATH,'.//td')]
         data.append(row)
 
-    print(data)
+    i = 8
+    dados = ''
+    while i <= len(data) - 2:
+        dados += ';'.join(data[i]) + '\n'
+        i += 1
+
+    f = open("highscores.csv", "w")
+    f.write(dados)
+    f.close()
 
 if __name__ == '__main__':
     main()
